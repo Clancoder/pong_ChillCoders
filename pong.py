@@ -31,13 +31,16 @@ screen.setup(width=540, height=350)  #screen size
 screen.colormode(255)
 screen.bgcolor(227, 238, 250)  #color for background
 
-# Welcome Message 
+# Welcome Message
 welcome_message = emojis.encode(
-    "Welcome to the Pong Game by Team Chillcoders! :ping_pong: :smile: :heart:"
+    "Welcome to the Pong Game by Team Chillcoders! :ping_pong: :smile: :heart:  :ping_pong:"
 )
 print(welcome_message)
+print("How do you play pong?")
+print("Use W/S keys for the Left Paddle to move and UP/DOWN arrow keys for the Right Paddle to move.The first player who gets 10 points wins!")
+print("P.S. This is a 2-player pong game with one ball.")
 
-title("Pong!")
+screen.title("Pong!")
 #Border
 border = turtle.Turtle()
 border.penup()
@@ -113,14 +116,14 @@ def k4():
 paddle1.left(90)
 paddle2.right(90)
 
-onkeypress(k1, "w")
-onkeypress(k2, "s")
-onkeypress(k3, "Down")
-onkeypress(k4, "Up")
+screen.onkeypress(k1, "w")
+screen.onkeypress(k2, "s")
+screen.onkeypress(k3, "Down")
+screen.onkeypress(k4, "Up")
 
-listen()
+screen.listen()
 
-#Moving the Ball 
+#Moving the Ball
 
 while player1_score < 10 and player2_score < 10:
     screen.update()
@@ -128,7 +131,7 @@ while player1_score < 10 and player2_score < 10:
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
-    # Checking borders 
+    # Checking borders
     if ball.ycor() > 120:
         ball.sety(90)
         ball.dy *= -1
@@ -157,12 +160,12 @@ while player1_score < 10 and player2_score < 10:
             str(player1_score), str(player2_score)),
                      align="center")
 
-# Ball color change 
+# Ball color change
     randomR = random.randint(0, 255)
     randomG = random.randint(0, 255)
     randomB = random.randint(0, 255)
 
-    # Paddle and Ball Collisions - 
+    # Paddle and Ball Collisions
     if (ball.xcor() > 170 and ball.ycor() < 180) and (ball).ycor(
     ) < paddle2.ycor() + 40 and ball.ycor() > paddle2.ycor() - 40:
         ball.setx(170)
@@ -181,4 +184,4 @@ if player1_score > player2_score:
     result_text.write("Player1 Win", align="center")
 else:
     result_box()
-    result_te
+    result_text.write("Player2 Win", align="center")
