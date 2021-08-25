@@ -88,7 +88,7 @@ paddle2.shapesize(stretch_wid=None, stretch_len=None, outline=None)
 paddle2.shapesize(stretch_wid=0.68, stretch_len=3.5)
 
 
-# Ball --by Mariam (don't delete my part)
+# Ball
 ball = turtle.Turtle()
 ball.shape("circle")
 ball.color("red")
